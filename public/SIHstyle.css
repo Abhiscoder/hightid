@@ -1,0 +1,480 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Macondo&display=swap');
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+.nav {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Adding shadow */
+  }
+.wrapper{
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.hero {
+    position: relative;
+    height: 100%;
+    background-image: url('/uploads/Beach3.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    gap: 3rem;
+    font-family: 'Roboto', sans-serif;
+    color: black;
+    padding-bottom: 50px;
+    animation: fadeIn 3s forwards;
+    
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.nav {
+    height: 3rem;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    transform: all 0.3s ease-in-out;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav .container {
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.nav ul {
+    display: flex;
+    list-style-type: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav a {
+    color: #65a8e1;
+    text-decoration: none;
+    padding: 7px 15px;
+}
+.logo img {
+    height: 100%;
+    width: 100%;
+}
+
+.test {
+    display: flex;
+    width: 60vw;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.panel {
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    height: 80%;
+    border-radius: 50px;
+    color: #fff;
+    cursor: pointer;
+    flex: 1;
+    margin: 10px;
+    position: relative;
+    transition: flex 0.7s ease-in;
+}
+
+.panel h3 {
+    font-size: 24px;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    margin: 0;
+    opacity: 0;
+}
+
+.panel.active {
+    flex: 5;
+}
+
+.panel.active h3 {
+    opacity: 1;
+    transition: opacity 0.3s ease-in 0.4s;
+}
+
+.right-text {
+    color: #125B9A;
+    font-size: 30px;
+    width: 30vw;
+    margin-top: 13rem;
+    font-family: "Macondo", cursive;
+}
+
+.right-text h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.right-text p {
+    font-family: "Dancing Script", cursive;
+    font-size: 20px;
+    line-height: 1.6;
+}
+
+
+.navigation{
+    /* background-image: url(/uploads/mapvi.png); */
+    background-color: #D1D8C5;
+    padding-top: 3.8rem;
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+}
+.navigation h1{
+    text-align: center;
+}
+.nav_icon{
+    animation-name: nav_move;
+    animation-duration: 2.5s;
+    animation-iteration-count: infinite;
+    text-shadow: 0 9px 2px #afaeab  ;
+}
+@keyframes nav_move {
+    50%{
+        transform: translateY(-10px);
+    }
+}
+.nav_container{
+    display: flex;
+    gap: 25px;
+    width: 100%;
+    height: 80%;
+}
+#map{
+    margin-left:2rem;
+    width: 50%;
+    margin-top: 3rem;
+    height: 100%;
+    border-radius: 20px;
+    transform: scale(1);
+
+}
+#map:hover{
+    transform: scale(1.05);
+    transition: 1s;
+    box-shadow: 0 0 10px #333;
+}
+
+.right{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    border-radius: 20px;
+    flex-direction: column;
+    gap: 50px;
+}
+.content{
+    font-size:30px;
+    font-weight: 700;
+    margin-top: 5rem;
+    margin-left: 2rem;
+    padding-inline: 2rem;
+    font-family: "Macondo", cursive;
+}
+.input_div{
+    display: flex;
+    margin-top: 4rem;
+    margin-left: 1rem;
+    position: relative;
+    height: 15%;
+    width: 90%;
+    padding: 20px;
+    background-color: rgba(54, 218, 218, 0.415);
+    border-radius: 2rem;
+}
+#location ,#search-input{
+    margin-left: 0.5rem;
+    border-radius: 1rem;
+    height: 100%;
+    width: 50%;
+}
+
+/* Safety Section */
+#safety {
+    padding-top: 3.8rem;
+    background-color:white;
+    text-align: center;
+    height: 80%;
+    width: 100%;
+}
+#safety h2{
+    font-size: 30px;
+    padding-bottom: 3rem;
+}
+.safety-tips {
+    height: 90%;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.tip {
+    height: 40%;
+    max-width: 20%;
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    animation-name: small;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    transform: scale(1);
+}
+.tip p{
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.tip h3 {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+/* Review Section */
+#review {
+    margin-top: 1.5rem;
+    height: 55%;
+    background-color: #EEEEEE;
+    text-align: center;
+}
+
+#review-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#review-form input,
+#review-form textarea {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
+
+#review-form button {
+    margin-top: 2rem;
+    padding: 10px 20px;
+    background-color: #125B9A;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+#review h2{
+    padding: 1.5rem;
+}
+#review-form button:hover {
+    background-color: #615EFC;
+}
+#footer{
+    color: wheat;
+    background-color: rgba(24, 22, 22, 0.902);
+    height: 32%;
+    display: flex;
+    justify-content: space-around;
+}
+#footer h2{
+    padding: 1rem;
+}
+#footer p{
+    color: wheat;
+    padding: 0.5rem 1rem;
+}
+#footer a{
+    color: wheat;
+    text-decoration: none;
+}
+.media{
+    padding: 0.5rem 1rem;
+    height: 60%;
+    display: flex;
+}
+.media i{
+    color: wheat;
+    padding: 0 0.5rem;
+    font-size: 2em;
+}
+span{
+    color: blue;
+}
+
+@media (max-width: 480px) {
+    .hero {
+        width: 100vw;
+    }
+
+    .panel:nth-of-type(4),
+    .panel:nth-of-type(5) {
+        display: none;
+    }
+    .nav{
+        height: 3.3rem;
+    }
+    .nav .container {
+        padding: 3px 0;
+    }
+    .nav a {
+        padding: 2px 5px;
+    }
+    .right-text {
+        /* font-size: 20px; */
+        width: 30vw;
+        margin-top: 10rem;
+    }
+    .right-text h1 {
+        font-size: 20px;
+        margin-bottom: 8px;
+    }
+    .right-text p {
+        font-family: "Dancing Script", cursive;
+        font-size: 17px;
+        line-height: 1.2;
+    }
+    .nav_container{
+        flex-direction: column;
+    }
+    #map{
+        width: 80%;
+        height: 100%;
+        border-radius: 20px;
+        transform: scale(1);
+    }
+    .right{
+        width: 100%;
+        height: 100%;
+    }
+.safety-tips {
+    flex-direction: column;
+    align-items: center;
+}
+.content{
+    font-size:25px;
+    font-weight: 500;
+    margin-top: 3rem;
+
+}
+    
+.tip {
+    height: 27%;
+    max-width: 70%;
+    padding: 10px;
+    transform: scale(1);
+}
+.tip h3 {
+    font-size: 17px;
+    margin-bottom: 8px;
+}
+#safety h2{
+    padding-bottom: 1rem;
+}
+.input_div{
+    height: 30%;
+    width: 90%;
+    padding: 20px;
+}
+
+#review-form button {
+    margin-top: 4rem;
+}
+}
+
+
+@keyframes small {
+    50%{
+        transform: scale(1.05);
+        filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.493));
+    }
+}
+
+
+/* rest.css */
+.rest {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.rest1 {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+.rest2 {
+    margin-bottom: 10px;
+}
+
+.rest3 {
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.rest4 {
+    display: block;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.rest5[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.rest6 {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.rest6:hover {
+    background-color: #0056b3;
+}
+
+#message {
+    margin-top: 20px;
+    color: #28a745;
+}

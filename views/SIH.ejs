@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>High Tides</title>
+    <link rel="icon" href="/uploads/logo3.png" sizes="640x640" type="image/x-icon">
+    <!-- This is library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.51/jquery.min.js"></script>
+    <!-- This is API connect script -->
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDEXYEPW95JDpcBHplre1v6OIEaRQxqx24&callback=initMap&v=weekly"
+        defer></script>
+    <!-- This is for search bar to search location -->
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDEXYEPW95JDpcBHplre1v6OIEaRQxqx24&libraries=places&callback=initMap"
+        async defer></script>
+
+    <link rel="stylesheet" href="/SIHstyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- navigation bar-->
+        <div class="nav">
+            <div class="logo">
+                <img src="/uploads/logo3.png" alt="High Tides Logo">
+            </div>
+            <div class="container">
+                <ul>
+                    <li><a href="#id_test">Home</a></li>
+                    <li><a href="#id_navigation">Navigate</a></li>
+                    <li><a href="#safety">Safety</a></li>
+                    <li><a href="#review">Review</a></li>
+                    <li><a href="#footer">About</a></li>
+                    <li><a href="signup">Sign up/Login</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Content-->
+        <div class="hero">
+
+            <div class="test" id="id_test">
+                <div class="panel activies" style="background-image: url('/uploads/marina-beach.jpg')">
+                    <h3>Marina Beach</h3>
+                </div>
+
+                <div class="panel activies" style="background-image: url('/uploads/palolem-beach.jpg')">
+                    <h3>Palolem Beach</h3>
+                </div>
+
+                <div class="panel activies" style="background-image: url('/uploads/radhanagar-beach.jpg')">
+                    <h3>Radhanagar Beach</h3>
+                </div>
+
+                <div class="panel activies" style="background-image: url('/uploads/tarkarli-beach.jpg')">
+                    <h3>Tarkarli Beach</h3>
+                </div>
+
+                <div class="panel activies" style="background-image: url('/uploads/varkala-beach.jpg')">
+                    <h3>Varkala Beach</h3>
+                </div>
+
+
+            </div>
+            <!-- Heading -->
+            <div class="right-text">
+                <h1>Ride the High Tides with Coastal Crew</h1>
+                <p>Dive into coastal adventures, stay ahead with real-time beach safety alerts, and enjoy the waves
+                    worry-free!</p>
+            </div>
+        </div>
+        <div class="navigation" id="id_navigation">
+            <h1>NAVIGATION &nbsp;<i class="fa-solid fa-location-dot nav_icon"></i></h1>
+            
+            <div class="nav_container">
+                <div id="map"></div>
+                <div class="right">
+                    <div class="input_div">
+                        <input id="location"  type="text" placeholder="Enter a location">
+                        <input id="search-input"  type="text" placeholder="Enter another location">
+                    </div>
+                    <div class="content">
+                        EASY NAVIAGTION TO <span class="role"></span>
+                        <!-- NEAREST AND FAVOURITE PLACES -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Safety Section -->
+        <section id="safety" class="section">
+            <h2>Beach Safety Alerts</h2>
+            <div class="safety-tips">
+                <div class="tip">
+                    <h3>High Tide Warning</h3>
+                    <p>Be cautious of rising tides. Always swim in designated safe zones.</p>
+                </div>
+                <div class="tip">
+                    <h3>Weather Alerts</h3>
+                    <p>Stay informed on current weather conditions and plan your trip accordingly.</p>
+                </div>
+                <div class="tip">
+                    <h3>Lifeguard Services</h3>
+                    <p>Check for lifeguard presence at beaches for added safety during your stay.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="review" class="section">
+            <h2>Submit Your Review</h2>
+            <form id="review-form">
+                <input type="text" placeholder="Your Name" required>
+                <textarea placeholder="Write your review..." required></textarea>
+                <button type="submit">Submit Review</button>
+            </form>
+        </section>
+
+        <section id="footer">
+            <div class="footer_left">
+                <h2>ABOUT</h2>
+                <p><a href="#">Contact us</a></p>
+                <p><a href="#">Email</a></p>
+                <p><a href="#">Address</a></p>
+                <p><a href="./login">logout</a></p>
+            </div>
+            <div class="footer_right">
+                <h2>Follow Us</h2>
+                <div class="media">
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                </div>
+            </div>
+
+        </section>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- //search -->
+    <script>
+        // Define the callback function that initializes the map
+        function initMap() {
+            // Initialize the map
+            const map = new google.maps.Map(document.getElementById("map"), {
+                center: { lat: 30.316496, lng: 78.032188 },
+                zoom: 10,
+            });
+
+            // Create a marker on the map
+            const marker = new google.maps.Marker({
+                position: { lat: 30.316496, lng: 78.032188 },
+                map: map,
+                label: "A",
+                title: "Dehradun",
+                draggable: false,
+                animation: google.maps.Animation.DROP, // Corrected property
+            });
+
+            // Create an info window
+            const infoWindow = new google.maps.InfoWindow({
+                content: "<p>Dehradun</p>"
+            });
+            infoWindow.open(map, marker);
+
+            // Create the first autocomplete instance
+            const autocompleteLocation = new google.maps.places.Autocomplete(document.getElementById("location"));
+            autocompleteLocation.bindTo('bounds', map);
+
+            // Set up a listener for the first autocomplete instance
+            autocompleteLocation.addListener('place_changed', function () {
+                const place = autocompleteLocation.getPlace();
+
+                if (!place.geometry) {
+                    console.log("No details available for input: '" + place.name + "'");
+                    return;
+                }
+
+                // Update the map with the selected place
+                if (place.geometry.viewport) {
+                    map.fitBounds(place.geometry.viewport);
+                } else {
+                    map.setCenter(place.geometry.location);
+                    map.setZoom(17); // Zoom in
+                }
+
+                // Create a marker for the selected place
+                new google.maps.Marker({
+                    position: place.geometry.location,
+                    map: map,
+                    title: place.name
+                });
+            });
+
+            // Create the second autocomplete instance
+            const autocompleteSearchInput = new google.maps.places.Autocomplete(document.getElementById("search-input"));
+            autocompleteSearchInput.bindTo('bounds', map);
+
+            // Set up a listener for the second autocomplete instance
+            autocompleteSearchInput.addListener('place_changed', function () {
+                const place = autocompleteSearchInput.getPlace();
+
+                if (!place.geometry) {
+                    console.log("No details available for input: '" + place.name + "'");
+                    return;
+                }
+
+                // Update the map with the selected place
+                if (place.geometry.viewport) {
+                    map.fitBounds(place.geometry.viewport);
+                } else {
+                    map.setCenter(place.geometry.location);
+                    map.setZoom(17); // Zoom in
+                }
+
+                // Create a marker for the selected place
+                new google.maps.Marker({
+                    position: place.geometry.location,
+                    map: map,
+                    title: place.name
+                });
+            });
+        }
+</script>
+        <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script src="https://kit.fontawesome.com/58a810656e.js" crossorigin="anonymous"></script>
+      <script>  var typeData = new Typed(".role", {
+      strings: [
+        "YOUR NEAREST BEACH",
+        "SAFEST BEACH",
+        "A SWIM SPOT",
+      ],
+      loop: true,
+      typeSpeed: 100,
+      backSpeed: 80,
+      backDelay: 1000,
+    });
+    </script>
+    <script src="/js/script.js"></script>
+</body>
+</html>
